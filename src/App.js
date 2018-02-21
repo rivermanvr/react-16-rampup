@@ -11,11 +11,12 @@ class App extends Component {
     ]
   }
   render() {
+    const person = this.state.persons;
     return (
       <div className="App">
         <h1>React App</h1>
         <button>Switch Name</button>
-        <Person name = "Vinny" age = "45" />
+        <Person name = { person[0].name } age = { person[0].age } />
         <Person name = "Karen" age = "35" />
         <Person name = "Alex" age = "32">Where does this go?</Person>
       </div>
