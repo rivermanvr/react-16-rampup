@@ -2,5 +2,8 @@
   text-align: center;
 }
 .button {
-  border: black;
+  border-color: black;
+  border-width: 1px;
+  padding: 5px;
+  background-color: palegoldenrod;
 }
