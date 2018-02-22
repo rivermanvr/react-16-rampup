@@ -15,7 +15,7 @@ class App extends Component {
     console.log('I clicked the button')
     this.setState({
       persons: [
-      { name: 'Maximilian', age: 28 },
+      { name: newName, age: 28 },
       { name: 'Manu', age: 29 },
       { name: 'Stephanie', age: 27 }
     ] });
@@ -26,7 +26,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1>React 16 Experiments</h1>
-        <button className="button" onClick={ this.switchNameHandler }>Switch Name</button>
+        <button className="button" onClick={ this.switchNameHandler.bind(this, 'Maximilian') }>Switch Name</button>
+        <button className="button" onClick={ this.switchNameHandler }>Error button</button>
         <Person
           name = { person[0].name }
           age = { person[0].age } />
@@ -36,7 +37,7 @@ class App extends Component {
         <Person
           name = { person[2].name }
           age = { person[2].age }
-          click = { this.switchNameHandler }>
+          click = { this.switchNameHandler.bind(this, 'Howard') }>
           This string will pass in props.children!
         </Person>
       </div>
