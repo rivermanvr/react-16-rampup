@@ -6,12 +6,19 @@ class App extends Component {
   state = {
     persons: [
       { name: 'Max', age: 28 },
-      { name: 'Vin', age: 45 },
-      { name: 'Karen', age: 40 }
+      { name: 'Manu', age: 29 },
+      { name: 'Stephanie', age: 26 }
     ]
   }
-  switchNameHandler = () => {
+  
+  switchNameHandler = (newName) => {
     console.log('I clicked the button')
+    this.setState({
+      persons: [
+      { name: 'Maximilian', age: 28 },
+      { name: 'Manu', age: 29 },
+      { name: 'Stephanie', age: 27 }
+    ] });
   }
 
   render() {
@@ -19,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>React 16 Experiments</h1>
-        <button onClick={ this.switchNameHandler }>Switch Name</button>
+        <button className="button" onClick={ this.switchNameHandler }>Switch Name</button>
         <Person
           name = { person[0].name }
           age = { person[0].age } />
@@ -30,7 +37,7 @@ class App extends Component {
           name = { person[2].name }
           age = { person[2].age }
           click = { this.switchNameHandler }>
-          This string will pass in props.children?
+          This string will pass in props.children!
         </Person>
       </div>
     );
