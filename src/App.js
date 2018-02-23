@@ -40,7 +40,7 @@ class App extends Component {
         <Person
           name = { person[2].name }
           age = { person[2].age }
-          click = { this.switchNameHandler.bind(this, 'Howard') }>
+          click = { this.switchNameHandler.bind(this, 'Howard-bind') }>
           This string will pass in props.children!
         </Person>
       </div>
