@@ -21,6 +21,16 @@ class App extends Component {
     ] });
   }
 
+  nameChangeHandler = (ev) => {
+    console.log('Input entered')
+    this.setState({
+      persons: [
+      { name: 'Max', age: 28 },
+      { name: ev.target.value, age: 29 },
+      { name: 'Stephanie', age: 27 }
+    ] });
+  }
+
   render() {
     const person = this.state.persons;
     return (
@@ -37,11 +47,12 @@ class App extends Component {
         <Person
           name = { person[1].name }
           age = { person[1].age }
-          click = { () => this.switchNameHandler('Zebra-function') } />
+          click = { () => this.switchNameHandler('Zebra-function') }
+          changed = { this.nameChangeHandler } />
         <Person
           name = { person[2].name }
           age = { person[2].age }
-          click = { this.switchNameHandler.bind(this, 'Howard-bind-3') }>
+          click = { this.switchNameHandler.bind(this, 'Howard-bind-3') } >
           This string will pass in props.children!
         </Person>
       </div>
