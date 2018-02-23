@@ -27,7 +27,7 @@ class App extends Component {
       <div className="App">
         <h1>React 16 Experiments</h1>
         <button
-          className="button" 
+          className="visible" 
           onClick={ this.switchNameHandler.bind(this, 'Maximilian-btn') }>
           Switch Name
         </button>
