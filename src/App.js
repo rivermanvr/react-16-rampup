@@ -28,7 +28,7 @@ class App extends Component {
         <h1>React 16 Experiments</h1>
         <button
           className="button" 
-          onClick={ this.switchNameHandler.bind(this, 'Maximilian') }>
+          onClick={ this.switchNameHandler.bind(this, 'Maximilian-btn') }>
           Switch Name
         </button>
         <Person
@@ -36,11 +36,12 @@ class App extends Component {
           age = { person[0].age } />
         <Person
           name = { person[1].name }
-          age = { person[1].age } />
+          age = { person[1].age }
+          click = { () => this.switchNameHandler('Zebra-function') } />
         <Person
           name = { person[2].name }
           age = { person[2].age }
-          click = { this.switchNameHandler.bind(this, 'Howard-bind') }>
+          click = { this.switchNameHandler.bind(this, 'Howard-bind-3') }>
           This string will pass in props.children!
         </Person>
       </div>
