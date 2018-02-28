@@ -38,7 +38,7 @@ class App extends Component {
   }
 
   render() {
-    const person = this.state.persons;
+    const personData = this.state.persons;
     const style = {
       backgroundColor: 'white',
       font: 'inherit',
@@ -46,24 +46,14 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer'
     };
-    let persons = null;
+    let personList = null;
     if (this.state.showPersons) {
-      persons = (
-        <div >
-          <Person
-            name = { person[0].name }
-            age = { person[0].age } />
-          <Person
-            name = { person[1].name }
-            age = { person[1].age }
-            click = { () => this.switchNameHandler('Zebra-function') }
-            changed = { this.nameChangeHandler } />
-          <Person
-            name = { person[2].name }
-            age = { person[2].age }
-            click = { this.switchNameHandler.bind(this, 'Howard-bind-3') } >
-            This string will pass in props.children!
-          </Person>
+      personList = (
+        <div>
+          { personData.map(person => {
+              return <Person name={ person.name } age={ person.age } />;
+            })
+          }
         </div>
       );
     }
@@ -75,7 +65,7 @@ class App extends Component {
           onClick={ this.togglePersonsHandler }>
           Switch Name
         </button>
-        { persons }
+        { personList }
       </div>
     );
   }
