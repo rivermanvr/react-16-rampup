@@ -46,6 +46,27 @@ class App extends Component {
       padding: '8px',
       cursor: 'pointer'
     };
+    let persons = null;
+    if (this.state.showPersons) {
+      persons = (
+        <div >
+          <Person
+            name = { person[0].name }
+            age = { person[0].age } />
+          <Person
+            name = { person[1].name }
+            age = { person[1].age }
+            click = { () => this.switchNameHandler('Zebra-function') }
+            changed = { this.nameChangeHandler } />
+          <Person
+            name = { person[2].name }
+            age = { person[2].age }
+            click = { this.switchNameHandler.bind(this, 'Howard-bind-3') } >
+            This string will pass in props.children!
+          </Person>
+        </div>
+      );
+    }
     return (
       <div className="App">
         <h1>React 16 Experiments</h1>
@@ -54,24 +75,7 @@ class App extends Component {
           onClick={ this.togglePersonsHandler }>
           Switch Name
         </button>
-        { this.state.showPersons ?
-          <div >
-            <Person
-              name = { person[0].name }
-              age = { person[0].age } />
-            <Person
-              name = { person[1].name }
-              age = { person[1].age }
-              click = { () => this.switchNameHandler('Zebra-function') }
-              changed = { this.nameChangeHandler } />
-            <Person
-              name = { person[2].name }
-              age = { person[2].age }
-              click = { this.switchNameHandler.bind(this, 'Howard-bind-3') } >
-              This string will pass in props.children!
-            </Person>
-          </div> : null
-        }
+        { persons }
       </div>
     );
   }
