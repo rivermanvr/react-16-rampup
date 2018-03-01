@@ -24,12 +24,7 @@ class App extends Component {
     const personIndex = this.state.persons.findIndex(person =>{
       return person.id === id;
     });
-    const person = {
-      //old way:
-      // const person = object.assign({}, this.state.persons[personIndex]);
-      //new way:
-      ...this.state.persons[personIndex]
-    };
+    const person = {...this.state.persons[personIndex]};
     const persons = [...this.state.persons];
     person.name = ev.target.value;
     persons[personIndex] = person;
