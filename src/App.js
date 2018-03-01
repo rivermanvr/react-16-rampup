@@ -51,7 +51,7 @@ class App extends Component {
       personList = (
         <div>
           { personData.map(person => {
-              return <Person name={ person.name } age={ person.age } />;
+              return <Person name={ person.name } age={ person.age } key={ person.name } />;
             })
           }
         </div>
