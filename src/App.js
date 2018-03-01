@@ -5,9 +5,9 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
     persons: [
-      { name: 'Max', age: 28 },
-      { name: 'Manu', age: 29 },
-      { name: 'Stephanie', age: 26 }
+      { id: 332, name: 'Max', age: 28 },
+      { id: 554, name: 'Manu', age: 29 },
+      { id: 123, name: 'Stephanie', age: 26 }
     ],
     showPersons: false
   }
@@ -19,14 +19,21 @@ class App extends Component {
     this.setState({ persons });
   }
 
-  nameChangeHandler = (ev) => {
+  nameChangeHandler = (ev, id) => {
     console.log('Input entered');
-    this.setState({
-      persons: [
-      { name: 'Max', age: 28 },
-      { name: ev.target.value, age: 29 },
-      { name: 'Stephanie', age: 27 }
-    ] });
+    const personIndex = this.state.persons.findIndex(person =>{
+      return person.id === id;
+    });
+    const person = {
+      //old way:
+      // const person = object.assign({}, this.state.persons[personIndex]);
+      //new way:
+      ...this.state.persons[personIndex]
+    };
+    const persons = [...this.state.persons];
+    person.name = ev.target.value;
+    persons[personIndex] = person;
+    this.setState({ persons });
   }
 
   togglePersonsHandler = () => {
@@ -49,6 +56,7 @@ class App extends Component {
           { personData.map((person, index) => {
               return <Person
                 click={ () => this.deletePersonHandler(index) }
+                changed={ (ev) => this.nameChangeHandler(ev, person.id) }
                 name={ person.name }
                 age={ person.age }
                 key={ index }
