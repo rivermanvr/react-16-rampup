@@ -38,7 +38,8 @@ class App extends Component {
   render() {
     const personData = this.state.persons;
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -60,6 +61,7 @@ class App extends Component {
           }
         </div>
       );
+      style.backgroundColor = 'red';
     }
     return (
       <div className="App">
