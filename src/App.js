@@ -37,7 +37,14 @@ class App extends Component {
 
   render() {
     const personData = this.state.persons;
-    let style = "styleB colorG";
+    const style = {
+      backgroundColor: 'green',
+      color: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
     let personList = null;
     if (this.state.showPersons) {
       personList = (
@@ -54,7 +61,7 @@ class App extends Component {
           }
         </div>
       );
-      style = "styleB colorR";
+      style.backgroundColor = 'red';
     }
     const classes = [];
     if (this.state.persons.length <= 2) classes.push('red');
@@ -64,7 +71,7 @@ class App extends Component {
         <h1>React 16 Experiments</h1>
         <p className={ classes.join(' ') }>Simple Toggle App</p>
         <button
-          className={ style }
+          style={ style }
           onClick={ this.togglePersonsHandler }>
           Switch Name
         </button>

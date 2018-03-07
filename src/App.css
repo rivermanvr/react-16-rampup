@@ -15,19 +15,3 @@
 .bold {
   font-weight: bold;
 }
-
-.styleB {
-  color: white;
-  font: inherit;
-  border: 2px solid pink;
-  padding: 8px;
-  cursor: pointer;
-};
-
-.colorG {
-  background-color: green;
-}
-
-.colorR {
-  background-color: red;
-}
