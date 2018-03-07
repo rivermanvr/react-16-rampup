@@ -16,6 +16,18 @@
   font-weight: bold;
 }
 
-button:hover {
-  background-color: peachpuff;
+.styleB {
+  color: white;
+  font: inherit;
+  border: 2px solid pink;
+  padding: 8px;
+  cursor: pointer;
+};
+
+.colorG {
+  background-color: green;
+}
+
+.colorR {
+  background-color: red;
 }
