@@ -1,5 +1,5 @@
 import React from 'react';
-import './Person.css';
+import styles from './Person.css';
 
 const person = ({ name, age, click, changed, children }) => {
   return (
