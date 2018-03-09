@@ -13,3 +13,15 @@
   padding: 5px;
   background-color: palegoldenrod;
 }
+
+@media (min-width: 500px) {
+  .Person {
+    width: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .Person {
+    width: 100px;
+  }
+}
