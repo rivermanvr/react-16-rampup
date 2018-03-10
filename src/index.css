@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.visible {
+  border-color: black;
+  border-width: 1px;
+  padding: 5px;
+  background-color: palegoldenrod;
+}

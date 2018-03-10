@@ -7,13 +7,6 @@
   text-align: center;
 }
 
-.visible {
-  border-color: black;
-  border-width: 1px;
-  padding: 5px;
-  background-color: palegoldenrod;
-}
-
 @media (min-width: 500px) {
   .Person {
     width: 50px;
