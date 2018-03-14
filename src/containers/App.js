@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './App.css';
 import Persons from '../components/Persons/Persons';
+import Cockpit from './components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
@@ -10,13 +11,6 @@ class App extends Component {
       { id: 123, name: 'Stephanie', age: 26 }
     ],
     showPersons: false
-  }
-  
-  deletePersonHandler = (personIndex) => {
-    // const persons = this.state.persons.slice();
-    const persons = [...this.state.persons];
-    persons.splice(personIndex, 1);
-    this.setState({ persons });
   }
 
   nameChangeHandler = (ev, id) => {
@@ -31,6 +25,13 @@ class App extends Component {
     this.setState({ persons });
   }
 
+  deletePersonHandler = (personIndex) => {
+    // const persons = this.state.persons.slice();
+    const persons = [...this.state.persons];
+    persons.splice(personIndex, 1);
+    this.setState({ persons });
+  }
+
   togglePersonsHandler = () => {
     this.setState({ showPersons: !this.state.showPersons });
   }
@@ -38,31 +39,19 @@ class App extends Component {
   render() {
     const personData = this.state.persons;
     let personList = null;
-    let btnClass = '';
     if (this.state.showPersons) {
-      personList = (
-        <div>
-          <Persons
-              clicked={ this.deletePersonHandler }
-              changed={ this.nameChangeHandler }
-              persons={ personData }
-              />;
-        </div>
-      );
-      btnClass = styles.Red;
+      personList = <Persons
+        clicked={ this.deletePersonHandler }
+        changed={ this.nameChangeHandler }
+        persons={ personData }
+        />;
     }
-    const classes = [];
-    if (this.state.persons.length <= 2) classes.push(styles.red);
-    if (this.state.persons.length <= 1) classes.push(styles.bold);
     return (
       <div className={ styles.App }>
-        <h1>React 16 Experiments</h1>
-        <p className={ classes.join(' ') }>Simple Toggle App</p>
-        <button
-        className={ btnClass }
-          onClick={ this.togglePersonsHandler }>
-          Switch Name
-        </button>
+
+      <Cockpit
+        appTitle={ this.props.title }
+      />
         { personList }
       </div>
     );
