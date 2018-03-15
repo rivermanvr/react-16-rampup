@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Person from './Person/Person'
 
-const persons = (props) => props.persons.map((person, index) => {
-    return <Person
-      click={ () => props.clicked(index) }
-      changed={ (ev) => props.changed(ev, person.id) }
-      name={ person.name }
-      age={ person.age }
-      key={ index }
-    />;
-  });
+class Persons extends Component {
+  render() {
+    return this.props.persons.map((person, index) => {
+      return <Person
+        click={ () => this.props.clicked(index) }
+        changed={ (ev) => this.props.changed(ev, person.id) }
+        name={ person.name }
+        age={ person.age }
+        key={ index }
+      />;
+    });
+  }
+}
 
-export default persons;
+export default Persons;
