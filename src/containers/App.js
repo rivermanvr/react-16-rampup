@@ -10,7 +10,11 @@ class App extends Component {
   }
 
   componentWillMount() {
-    console.log('[App.js] - inside componentWillMount');
+    console.log('[App.js] - inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] - inside componentDidMount()');
   }
 
   state = {
@@ -46,6 +50,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] - inside render()');
     const personData = this.state.persons;
     let personList = null;
     if (this.state.showPersons) {
