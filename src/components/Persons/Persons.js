@@ -13,6 +13,10 @@ class Persons extends Component {
 
   componentDidMount() {
     console.log('[Persons.js] - inside componentDidMount()');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('[Update Persons.js] - inside componentWillReceiveProps()', nextProps);
   }  
 
   render() {
