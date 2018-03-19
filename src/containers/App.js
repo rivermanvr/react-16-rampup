@@ -49,6 +49,19 @@ class App extends Component {
     this.setState({ showPersons: !this.state.showPersons });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[Update App.js] - inside shouldComponentUpdate()', nextProps, nextState);
+    return nextProps.persons !== this.props.persons;
+  } 
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('[Update App.js] - inside componentWillUpdate()', nextProps, nextState);
+  }
+
+  componentDidUpdate() {
+    console.log('[Update App.js] - inside componentDidUpdatet()');
+  }
+
   render() {
     console.log('[App.js] - inside render()');
     const personData = this.state.persons;
