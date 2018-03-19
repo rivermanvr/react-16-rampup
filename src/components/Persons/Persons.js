@@ -28,6 +28,10 @@ class Persons extends Component {
     console.log('[Update Persons.js] - inside componentWillUpdate()', nextProps, nextState);
   }
 
+  componentDidUpdate() {
+    console.log('[Update Persons.js] - inside componentDidUpdatet()');
+  }
+
   render() {
     console.log('[Persons.js] - inside render()');
     return this.props.persons.map((person, index) => {
