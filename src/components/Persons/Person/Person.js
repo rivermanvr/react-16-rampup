@@ -14,6 +14,12 @@ class Person extends Component {
 
   componentDidMount() {
     console.log('[Person.js] - inside componentDidMount()');
+
+    //note:  position was passed as a prop.  ...see persons.js
+    // we created & assigned a value to inputElement in input using "ref"
+    // we could have called inputElement any name we want....
+
+    if (this.props.position === 1) this.inputElement.focus();
   }
 
   render() {
@@ -24,7 +30,13 @@ class Person extends Component {
           My name is { this.props.name } and I am { this.props.age } years old!
         </p>
         <p>{ this.props.children }</p>
-        <input type="text" onChange={ this.props.changed } value={ this.props.name } className={ styles.visible } />
+        <input
+          ref={ (inp) => { this.inputElement = inp } }
+          type="text"
+          onChange={ this.props.changed }
+          value={ this.props.name }
+          className={ styles.visible }
+        />
       </div>
     )
   }

@@ -8,11 +8,11 @@
 }
 @media (min-width: 500px) {
   .Person {
-    width: 50px;
+    width: 150px;
   }
 }
 @media (max-width: 500px) {
   .Person {
-    width: 100px;
+    width: 300px;
   }
 }
